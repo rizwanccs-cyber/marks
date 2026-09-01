@@ -4,7 +4,7 @@ import { hashPassword } from '@/lib/auth';
 
 export const dynamic = 'force-dynamic';
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
     const adminCount = await prisma.user.count({ where: { role: 'ADMIN' } });
     if (adminCount > 0) {
